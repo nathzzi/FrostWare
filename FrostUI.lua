@@ -33,7 +33,7 @@ ExecB.TextColor3 = Color3.fromRGB(255, 255, 255)
 ExecB.TextSize = 18.000
 ExecB.TextWrapped = true
 ExecB.MouseButton1Down:connect(function()
-	loadstring(ExecB.Text)()
+	loadstring(ExecBox.Text)()
 end)
 
 UICorner.CornerRadius = UDim.new(0, 5)

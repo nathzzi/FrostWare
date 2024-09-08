@@ -3,6 +3,8 @@
 
 -- Instances:
 
+local plrs = game.Players.LocalPlayer
+
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -205,7 +207,7 @@ User.BorderSizePixel = 0
 User.Position = UDim2.new(0.0581817627, 0, 0.094617106, 0)
 User.Size = UDim2.new(0, 47, 0, 59)
 User.ZIndex = 2
-User.Image = "rbxassetid://18747017080"
+User.Image = game.Players:GetUserThumbnailAsync(plrs.UserId,Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 
 UserText.Name = "UserText"
 UserText.Parent = User
@@ -217,7 +219,7 @@ UserText.Position = UDim2.new(1.11682653, 0, 0.213267952, 0)
 UserText.Size = UDim2.new(0, 155, 0, 35)
 UserText.ZIndex = 324234234
 UserText.Font = Enum.Font.Gotham
-UserText.Text = "Welcome, User"
+UserText.Text = "Welcome, "..plrs.Name..""
 UserText.TextColor3 = Color3.fromRGB(255, 255, 255)
 UserText.TextSize = 20.000
 UserText.TextWrapped = true
@@ -656,22 +658,8 @@ local function PEWWH_fake_script() -- Top.Draggable
 	end)
 end
 coroutine.wrap(PEWWH_fake_script)()
-local function HPUU_fake_script() -- User.LocalScript 
-	local script = Instance.new('LocalScript', User)
-
-	local image = script.Parent
-	--image.Image = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId,Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-end
 coroutine.wrap(HPUU_fake_script)()
-local function FMXLH_fake_script() -- UserText.LocalScript 
-    local script = Instance.new('LocalScript', UserText)
 
-    --local user = game.Players.LocalPlayer.Name
-    local txt = script.Parent
-    
-    txt.Text = "Welcome"
-end
-coroutine.wrap(FMXLH_fake_script)()
 local function SUKHB_fake_script() -- Main.LocalScript 
 	local script = Instance.new('LocalScript', Main)
 

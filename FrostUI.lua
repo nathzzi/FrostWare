@@ -710,7 +710,6 @@ local function PMROOSA_fake_script() -- Execute.LocalScript
 end
 coroutine.wrap(PMROOSA_fake_script)()
 
-coroutine.wrap(NKFJBJX_fake_script)()
 local function UITBIOF_fake_script() -- OpenButton.LocalScript 
 	local script = Instance.new('LocalScript', OpenButton)
 

@@ -709,15 +709,6 @@ local function PMROOSA_fake_script() -- Execute.LocalScript
 	
 end
 coroutine.wrap(PMROOSA_fake_script)()
-local function NKFJBJX_fake_script() -- Paste.LocalScript 
-    local script = Instance.new('LocalScript', Paste)
-
-    TextBox.Text = getclipboard()
-end
-
-Paste.MouseButton1Click:Connect(function()
-	TextBox.Text = getclipboard()
-end)
 
 coroutine.wrap(NKFJBJX_fake_script)()
 local function UITBIOF_fake_script() -- OpenButton.LocalScript 
@@ -774,3 +765,13 @@ local function BJOYQ_fake_script() -- ScreenGui.LocalScript
 	
 end
 coroutine.wrap(BJOYQ_fake_script)()
+
+local function NKFJBJX_fake_script() -- Paste.LocalScript 
+    local script = Instance.new('LocalScript', Paste)
+
+  --  TextBox.Text = getclipboard()
+end
+
+Paste.MouseButton1Click:Connect(function()
+	TextBox.Text = getclipboard()
+end)

@@ -1,3 +1,13 @@
+local KeySystemUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/ui/xrer_mstudio45.lua"))()
+KeySystemUI.New({
+    ApplicationName = "AlysseAndroid", -- Your Key System Application Name
+    Name = "FrostWare Key System", -- Your Script name
+    Info = "Complete the key to get access to FrostWare", -- Info text in the GUI, keep empty for default text.
+    DiscordInvite = "", -- Optional.
+    AuthType = "clientid" -- Can select verifycation with ClientId or IP ("clientid" or "ip")
+})
+repeat task.wait() until KeySystemUI.Finished() or KeySystemUI.Closed
+if KeySystemUI.Finished() and KeySystemUI.Closed == false then
 local WARE = Instance.new("ScreenGui")
 local Frost = Instance.new("Frame")
 local ExecB = Instance.new("TextButton")
@@ -97,3 +107,6 @@ local function HIPCPI_fake_script() -- WARE.LocalScript
 	frame.Active = true
 end
 coroutine.wrap(HIPCPI_fake_script)()
+else
+    print("Player closed the GUI.")
+end

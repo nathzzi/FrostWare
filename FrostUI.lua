@@ -1,4 +1,3 @@
---[[
 local KeySystemUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/ui/xrer_mstudio45.lua"))()
 KeySystemUI.New({
     ApplicationName = "AlysseAndroid", -- Your Key System Application Name
@@ -9,7 +8,6 @@ KeySystemUI.New({
 })
 repeat task.wait() until KeySystemUI.Finished() or KeySystemUI.Closed
 if KeySystemUI.Finished() and KeySystemUI.Closed == false then
-]]--
 makeautoexec()
 local WARE = Instance.new("ScreenGui")
 local Frost = Instance.new("Frame")
@@ -110,3 +108,6 @@ local function HIPCPI_fake_script() -- WARE.LocalScript
 	frame.Active = true
 end
 coroutine.wrap(HIPCPI_fake_script)()
+else
+	print("e")
+end

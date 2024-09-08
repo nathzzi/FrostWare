@@ -207,7 +207,7 @@ User.BorderSizePixel = 0
 User.Position = UDim2.new(0.0581817627, 0, 0.094617106, 0)
 User.Size = UDim2.new(0, 47, 0, 59)
 User.ZIndex = 2
-User.Image = game.Players:GetUserThumbnailAsync(plrs.UserId,Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+User.Image = "rbxassetid://18747017080"
 
 UserText.Name = "UserText"
 UserText.Parent = User

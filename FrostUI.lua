@@ -10,6 +10,7 @@ KeySystemUI.New({
 repeat task.wait() until KeySystemUI.Finished() or KeySystemUI.Closed
 if KeySystemUI.Finished() and KeySystemUI.Closed == false then
 ]]--
+makeautoexec()
 local WARE = Instance.new("ScreenGui")
 local Frost = Instance.new("Frame")
 local ExecB = Instance.new("TextButton")

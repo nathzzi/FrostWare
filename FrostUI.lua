@@ -1,8 +1,4 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
+repeat wait( ) until game:IsLoaded( )
 local plrs = game.Players.LocalPlayer
 
 local ScreenGui = Instance.new("ScreenGui")

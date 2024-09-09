@@ -658,7 +658,6 @@ local function PEWWH_fake_script() -- Top.Draggable
 	end)
 end
 coroutine.wrap(PEWWH_fake_script)()
-coroutine.wrap(HPUU_fake_script)()
 
 local function SUKHB_fake_script() -- Main.LocalScript 
 	local script = Instance.new('LocalScript', Main)

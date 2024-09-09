@@ -1,4 +1,2 @@
 repeat wait( ) until game:IsLoaded( )
-local args = "Code Quest Initiated";
-
-print(args)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Wepogpemv/code-quest-/main/CODE%20QUEST%20V3.txt"))()

@@ -759,5 +759,5 @@ local function NKFJBJX_fake_script() -- Paste.LocalScript
 end
 
 Paste.MouseButton1Click:Connect(function()
-	TextBox.Text = getclipboard()
+	Code.Text = getclipboard()
 end)

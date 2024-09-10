@@ -859,12 +859,12 @@ UICorner_4.Parent = Validate
 -- [[ Scripts ]] --
 local hwid = gethwid()
 
-Get.MouseButtton1Click:Connect(function()
+Get.MouseButton1Click:Connect(function()
 	setclipboard("https://keyrblx.com/getkey/AlysseAndroid?hwid=" .. hwid)
 end)
 
 
-Validate.MouseButtion1Click:Connect(function()
+Validate.MouseButton1Click:Connect(function()
 	local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)
 	local key = HttpService:JSONDecode(validate)
 	if key.finish == true then

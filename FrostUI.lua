@@ -860,22 +860,58 @@ UICorner_4.Parent = Validate
 local hwid = gethwid()
 local HttpService = game:GetService("HttpService")
 
+local function validateKey(hwid)
+    local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)
+    local success, response = pcall(function()
+        return HttpService:JSONDecode(validate)
+    end)
+    
+    if success and response and response.finish == true then
+        return true, response
+    else
+        return false, response
+    end
+end
+
+local function checkStoredKey()
+    if isfile(keyFileName) then
+        local storedKey = readfile(keyFileName)
+        if storedKey == hwid then
+            local isValid, _ = validateKey(hwid)
+            if isValid then
+                Text.Text = "Key already validated!"
+                wait(2)
+                FrostKey:Destroy()
+                loadfrost()
+                return true
+            end
+        end
+    end
+    return false
+end
+
 Get.MouseButton1Click:Connect(function()
 	setclipboard("https://keyrblx.com/getkey/AlysseAndroid?hwid=" .. hwid)
 end)
 
 
 Validate.MouseButton1Click:Connect(function()
-	local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)
-	local key = HttpService:JSONDecode(validate)
-	if key.finish == true then
-		Text.Text = "Correct Key!"
-		wait(2)
-		FrostKey:Destroy()
-		loadfrost()
-	else
-		Text.Text = "Invalid Key! Try again"
-		wait(2)
-		Text.Text = ""
-	end
+    if not checkStoredKey() then
+        local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)
+        local success, key = pcall(function()
+            return HttpService:JSONDecode(validate)
+        end)
+
+        if success and key and key.finish == true then
+            Text.Text = "Correct Key!"
+            writefile(keyFileName, hwid)
+            wait(2)
+            FrostKey:Destroy()
+            loadfrost()
+        else
+            Text.Text = "Invalid Key! Try again"
+            wait(2)
+            Text.Text = ""
+        end
+    end
 end)

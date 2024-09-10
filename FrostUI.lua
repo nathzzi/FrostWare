@@ -836,7 +836,7 @@ Get.Size = UDim2.new(0, 102, 0, 34)
 Get.Font = Enum.Font.Unknown
 Get.Text = "Get Key"
 Get.TextColor3 = Color3.fromRGB(255, 255, 255)
-Get.TextSize = 17.000
+Get.TextSize = 15.000
 
 UICorner_3.CornerRadius = UDim.new(0, 7)
 UICorner_3.Parent = Get
@@ -851,7 +851,7 @@ Validate.Size = UDim2.new(0, 70, 0, 34)
 Validate.Font = Enum.Font.Unknown
 Validate.Text = "Enter"
 Validate.TextColor3 = Color3.fromRGB(255, 255, 255)
-Validate.TextSize = 17.000
+Validate.TextSize = 15.000
 
 UICorner_4.CornerRadius = UDim.new(0, 7)
 UICorner_4.Parent = Validate

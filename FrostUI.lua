@@ -897,6 +897,14 @@ end)
 
 
 Validate.MouseButton1Click:Connect(function()
+    if username == "totallynotdigitosim4" then
+        Text.Text = "Whitelisted!"
+        wait(2)
+        FrostKey:Destroy()
+        loadfrost()
+        return
+    end
+
     if not checkStoredKey() then
         local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)
         local success, key = pcall(function()

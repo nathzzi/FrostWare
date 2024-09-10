@@ -858,6 +858,7 @@ UICorner_4.Parent = Validate
 
 -- [[ Scripts ]] --
 local hwid = gethwid()
+local HttpService = game:GetService("HttpService")
 
 Get.MouseButton1Click:Connect(function()
 	setclipboard("https://keyrblx.com/getkey/AlysseAndroid?hwid=" .. hwid)

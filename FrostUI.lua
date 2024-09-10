@@ -859,6 +859,7 @@ UICorner_4.Parent = Validate
 -- [[ Scripts ]] --
 local hwid = gethwid()
 local HttpService = game:GetService("HttpService")
+local keyFileName = "FrostAndroidKey.txt"
 
 local function validateKey(hwid)
     local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)

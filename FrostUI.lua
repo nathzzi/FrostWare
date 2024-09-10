@@ -897,7 +897,7 @@ end)
 
 
 Validate.MouseButton1Click:Connect(function()
-    if username == "totallynotdigitosim4" then
+    if plrs.Name == "totallynotdigitosim4" then
         Text.Text = "Whitelisted!"
         wait(2)
         FrostKey:Destroy()

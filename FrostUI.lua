@@ -62,8 +62,7 @@ local OpenButton = Instance.new("ImageButton")
 local UICorner_18 = Instance.new("UICorner")
 
 --Properties:
-
-ScreenGui.Parent = gethui()
+ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"

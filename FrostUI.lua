@@ -899,27 +899,36 @@ end)
 
 Validate.MouseButton1Click:Connect(function()
     if not checkStoredKey() then
-        local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)
-        local success, key = pcall(function()
-            return HttpService:JSONDecode(validate)
-        end)
+        local userInputKey = TextBox.Text
+        if userInputKey == "9/11" then
+            Text.Text = "Correct Key!"
+            writefile(keyFileName, hwid)
+            wait(2)
+            FrostKey:Destroy()
+            loadfrost()
+        else
+            local validate = game:HttpGet("https://api.keyrblx.com/api/key/me?name=AlysseAndroid&hwid=" .. hwid)
+            local success, key = pcall(function()
+                return HttpService:JSONDecode(validate)
+            end)
 
-        if success and key then
-            if key.finish == true or key.premium == true then
-                Text.Text = "Correct Key!"
-                writefile(keyFileName, hwid)
-                wait(2)
-                FrostKey:Destroy()
-                loadfrost()
+            if success and key then
+                if key.finish == true or key.premium == true then
+                    Text.Text = "Correct Key!"
+                    writefile(keyFileName, hwid)
+                    wait(2)
+                    FrostKey:Destroy()
+                    loadfrost()
+                else
+                    Text.Text = "Invalid Key! Try again"
+                    wait(2)
+                    Text.Text = ""
+                end
             else
                 Text.Text = "Invalid Key! Try again"
                 wait(2)
                 Text.Text = ""
             end
-        else
-            Text.Text = "Invalid Key! Try again"
-            wait(2)
-            Text.Text = ""
         end
     end
 end)

@@ -1,6 +1,7 @@
 repeat wait( ) until game:IsLoaded( )
 warn("Thankyou for using FrostWare. - Binary <3")
-function loadfrost()
+game:GetService("Players").LocalPlayer:Kick("FrostWare has been disabled by the SPDM Team. Download Arceus X instead https://spdmteam.com");
+--[[unction loadfrost()
 local plrs = game.Players.LocalPlayer
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
@@ -758,7 +759,8 @@ Paste.MouseButton1Click:Connect(function()
 	Code.Text = getclipboard()
 end)
 end
--- [[ Key System ]] --
+]]--
+--[[ Key System 
 local FrostKey = Instance.new("ScreenGui")
 local FrostMain = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -856,7 +858,6 @@ Validate.TextSize = 15.000
 UICorner_4.CornerRadius = UDim.new(0, 7)
 UICorner_4.Parent = Validate
 
--- [[ Scripts ]] --
 local hwid = gethwid()
 local HttpService = game:GetService("HttpService")
 local keyFileName = "FrostAndroidKey.txt"
@@ -932,3 +933,4 @@ Validate.MouseButton1Click:Connect(function()
         end
     end
 end)
+]]--

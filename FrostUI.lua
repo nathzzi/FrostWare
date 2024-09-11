@@ -1,7 +1,6 @@
 repeat wait( ) until game:IsLoaded( )
 warn("Thankyou for using FrostWare. - Binary <3")
-game:GetService("Players").LocalPlayer:Kick("FrostWare has been disabled by the SPDM Team. Download Arceus X instead https://spdmteam.com");
---[[unction loadfrost()
+function loadfrost()
 local plrs = game.Players.LocalPlayer
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
@@ -759,8 +758,8 @@ Paste.MouseButton1Click:Connect(function()
 	Code.Text = getclipboard()
 end)
 end
-]]--
---[[ Key System 
+
+--[[ Key System ]]--
 local FrostKey = Instance.new("ScreenGui")
 local FrostMain = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -886,7 +885,7 @@ local function checkStoredKey()
                 Text.Text = "Key already validated!"
                 wait(2)
                 FrostKey:Destroy()
-                loadfrost()
+                game:GetService("Players").LocalPlayer:Kick("FrostWare has been disabled by the SPDM Team. Download Arceus X instead https://spdmteam.com");
                 return true
             end
         end
@@ -919,7 +918,7 @@ Validate.MouseButton1Click:Connect(function()
                     writefile(keyFileName, hwid)
                     wait(2)
                     FrostKey:Destroy()
-                    loadfrost()
+                    game:GetService("Players").LocalPlayer:Kick("FrostWare has been disabled by the SPDM Team. Download Arceus X instead https://spdmteam.com");
                 else
                     Text.Text = "Invalid Key! Try again"
                     wait(2)
@@ -933,4 +932,3 @@ Validate.MouseButton1Click:Connect(function()
         end
     end
 end)
-]]--

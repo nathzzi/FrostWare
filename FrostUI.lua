@@ -899,7 +899,7 @@ end)
 
 Validate.MouseButton1Click:Connect(function()
     if not checkStoredKey() then
-        local userInputKey = TextBox.Text
+        local userInputKey = Text.Text
         if userInputKey == "9/11" then
             Text.Text = "Correct Key!"
             writefile(keyFileName, hwid)

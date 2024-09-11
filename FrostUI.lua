@@ -866,12 +866,14 @@ local function validateKey(hwid)
     local success, response = pcall(function()
         return HttpService:JSONDecode(validate)
     end)
-    
-    if success and response and response.finish == true then
-        return true, response
-    else
-        return false, response
+
+    if success and response then
+        if response.finish == true or response.premium == true then
+            return true, response
+        end
     end
+
+    return false, response
 end
 
 local function checkStoredKey()
@@ -892,16 +894,8 @@ local function checkStoredKey()
 end
 
 Get.MouseButton1Click:Connect(function()
-	setclipboard("https://keyrblx.com/getkey/AlysseAndroid?hwid=" .. hwid)
+    setclipboard("https://keyrblx.com/getkey/AlysseAndroid?hwid=" .. hwid)
 end)
-
-if plrs.Name == "totallynotdigitosim4" then
-    Text.Text = "Whitelisted!"
-    wait(2)
-    FrostKey:Destroy()
-    loadfrost()
-    return
-end
 
 Validate.MouseButton1Click:Connect(function()
     if not checkStoredKey() then
@@ -910,12 +904,18 @@ Validate.MouseButton1Click:Connect(function()
             return HttpService:JSONDecode(validate)
         end)
 
-        if success and key and key.finish == true then
-            Text.Text = "Correct Key!"
-            writefile(keyFileName, hwid)
-            wait(2)
-            FrostKey:Destroy()
-            loadfrost()
+        if success and key then
+            if key.finish == true or key.premium == true then
+                Text.Text = "Correct Key!"
+                writefile(keyFileName, hwid)
+                wait(2)
+                FrostKey:Destroy()
+                loadfrost()
+            else
+                Text.Text = "Invalid Key! Try again"
+                wait(2)
+                Text.Text = ""
+            end
         else
             Text.Text = "Invalid Key! Try again"
             wait(2)

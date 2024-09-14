@@ -652,7 +652,6 @@ local function MKELUE_fake_script() -- FPS.LocalScript
 end
 coroutine.wrap(MKELUE_fake_script)()
 
-coroutine.wrap(TPOLSPE_fake_script)()
 local function FJKP_fake_script() -- Rank.LocalScript 
 	local script = Instance.new('LocalScript', Rank)
 
@@ -777,6 +776,7 @@ local function TPOLSPE_fake_script() -- Subscription.LocalScript
 		end
 	end
 end
+coroutine.wrap(TPOLSPE_fake_script)()
 
 local function BXMC_fake_script() -- User.LocalScript 
 	local script = Instance.new('LocalScript', User)
@@ -786,3 +786,4 @@ local function BXMC_fake_script() -- User.LocalScript
 	
 	image.Image = game.Players:GetUserThumbnailAsync(plrs.UserId,Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 end
+coroutine.wrap(BXMC_fake_script)()

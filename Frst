@@ -56,6 +56,7 @@ local Frame = Instance.new("Frame")
 local UICorner_16 = Instance.new("UICorner")
 local OpenButton = Instance.new("ImageButton")
 local UICorner_17 = Instance.new("UICorner")
+makeautoexec()
 
 --Properties:
 

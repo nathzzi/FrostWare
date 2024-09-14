@@ -58,7 +58,7 @@ local UICorner_17 = Instance.new("UICorner")
 --Properties:
 
 idk.Name = "idk"
-idk.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+idk.Parent = game.CoreGui
 idk.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"

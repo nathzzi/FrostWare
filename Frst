@@ -649,32 +649,7 @@ local function MKELUE_fake_script() -- FPS.LocalScript
 	end
 end
 coroutine.wrap(MKELUE_fake_script)()
-local function TPOLSPE_fake_script() -- Subscription.LocalScript 
-	local script = Instance.new('LocalScript', Subscription)
 
-	local PremiumPlayer = {2877625446,3076617904,3494826637}
-	
-	local SubscriptionTag = script.Parent.Parent.Subscription
-	
-	local Player = game.Players.LocalPlayer
-	
-	while wait() do
-		local isPremium = false
-		for _, id in pairs(PremiumPlayer) do
-			if Player.UserId == id then
-				isPremium = true
-				break
-			end
-		end
-		if isPremium then
-			SubscriptionTag.Text = "Premium"
-			SubscriptionTag.TextColor3 = Color3.fromRGB(30, 0, 255)
-		else
-			SubscriptionTag.Text = "Free"
-			SubscriptionTag.TextColor3 = Color3.fromRGB(13, 255, 0)
-		end
-	end
-end
 coroutine.wrap(TPOLSPE_fake_script)()
 local function FJKP_fake_script() -- Rank.LocalScript 
 	local script = Instance.new('LocalScript', Rank)
@@ -714,14 +689,7 @@ local function FJKP_fake_script() -- Rank.LocalScript
 	end
 end
 coroutine.wrap(FJKP_fake_script)()
-local function BXMC_fake_script() -- User.LocalScript 
-	local script = Instance.new('LocalScript', User)
 
-	local plrs = game.Players.LocalPlayer
-	local image = script.Parent
-	
-	image.Image = game.Players:GetUserThumbnailAsync(plrs.UserId,Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-end
 coroutine.wrap(BXMC_fake_script)()
 local function XBIP_fake_script() -- UserText.LocalScript 
 	local script = Instance.new('LocalScript', UserText)
@@ -780,3 +748,39 @@ local function HTLSX_fake_script() -- OpenButton.Drag
 end
 coroutine.wrap(HTLSX_fake_script)()
 -- idk.DONT DELETE is disabled.
+
+local function TPOLSPE_fake_script() -- Subscription.LocalScript 
+	local script = Instance.new('LocalScript', Subscription)
+
+	local PremiumPlayer = {2877625446,3076617904,3494826637}
+	
+	local SubscriptionTag = script.Parent.Parent.Subscription
+	
+	local Player = game.Players.LocalPlayer
+	
+	while wait() do
+		local isPremium = false
+		for _, id in pairs(PremiumPlayer) do
+			if Player.UserId == id then
+				isPremium = true
+				break
+			end
+		end
+		if isPremium then
+			SubscriptionTag.Text = "Premium"
+			SubscriptionTag.TextColor3 = Color3.fromRGB(30, 0, 255)
+		else
+			SubscriptionTag.Text = "Free"
+			SubscriptionTag.TextColor3 = Color3.fromRGB(13, 255, 0)
+		end
+	end
+end
+
+local function BXMC_fake_script() -- User.LocalScript 
+	local script = Instance.new('LocalScript', User)
+
+	local plrs = game.Players.LocalPlayer
+	local image = script.Parent
+	
+	image.Image = game.Players:GetUserThumbnailAsync(plrs.UserId,Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+end

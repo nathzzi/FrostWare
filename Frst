@@ -691,7 +691,6 @@ local function FJKP_fake_script() -- Rank.LocalScript
 end
 coroutine.wrap(FJKP_fake_script)()
 
-coroutine.wrap(BXMC_fake_script)()
 local function XBIP_fake_script() -- UserText.LocalScript 
 	local script = Instance.new('LocalScript', UserText)
 

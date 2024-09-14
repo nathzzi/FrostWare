@@ -1,6 +1,4 @@
-print(identifyexecutor())
-
---[[
+warn("hi")
 local idk = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -782,4 +780,3 @@ local function HTLSX_fake_script() -- OpenButton.Drag
 end
 coroutine.wrap(HTLSX_fake_script)()
 -- idk.DONT DELETE is disabled.
-]]--

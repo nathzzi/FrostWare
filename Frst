@@ -1,4 +1,9 @@
-warn("hi")
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Powered by Unknown Exploits",
+        Text = "...",
+        Icon = "",
+        Duration = 3,
+})
 local idk = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")

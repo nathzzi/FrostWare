@@ -1,4 +1,5 @@
 print("HOLESHEET")
+runautoexec()
 --[[
 local MobileBlox = Instance.new('ScreenGui')
 local Main = Instance.new('Frame')

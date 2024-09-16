@@ -1,3 +1,4 @@
+--[[
 local MobileBlox = Instance.new('ScreenGui')
 local Main = Instance.new('Frame')
 local TextBox = Instance.new('TextBox')
@@ -120,3 +121,4 @@ local function OBDPHLQ_fake_script() -- Execute.LocalScript
     end)
 end
 coroutine.wrap(OBDPHLQ_fake_script)()
+]]--

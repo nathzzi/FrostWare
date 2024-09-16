@@ -116,7 +116,7 @@ local function OBDPHLQ_fake_script() -- Execute.LocalScript
     local btn = script.Parent
 
     btn.MouseButton1Click:Connect(function()
-        mb_schedscript(box.Text)
+        loadstring(box.Text)()
     end)
 end
 coroutine.wrap(OBDPHLQ_fake_script)()

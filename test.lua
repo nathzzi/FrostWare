@@ -4,7 +4,6 @@ local Main = Instance.new('Frame')
 local TextBox = Instance.new('TextBox')
 local Clear = Instance.new('TextButton')
 local Execute = Instance.new('TextButton')
-runautoexec()
 
 --Properties:
 

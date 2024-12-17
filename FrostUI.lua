@@ -755,4 +755,3 @@ end
 Paste.MouseButton1Click:Connect(function()
 	Code.Text = getclipboard()
 end)
-end

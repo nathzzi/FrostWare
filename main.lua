@@ -775,3 +775,9 @@ while wait() do
 	local fps = math.floor(1 / wait())
 	TextLabel_7.Text = "FPS: ".. fps
 end
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Frostware",
+    Text = "Join our discord today! https://discord.gg/3FhXJSyWG8",
+    Icon = "rbxthumb://type=Asset&id=114936734174789&w=150&h=150"
+})

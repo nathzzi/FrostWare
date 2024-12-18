@@ -733,3 +733,51 @@ local function XXTZ_fake_script() -- OpenButton.Drag
 	local Draggable = false
 	
 	TopBar.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Draggable = true
+			DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+			FramePosition= Vector2.new(MainFrame.Position.X.Scale, MainFrame.Position.Y.Scale)
+		end
+	end)
+	
+	TopBar.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Draggable = false
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if Draggable == true then
+			local NewPosition = FramePosition + ( (Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
+			MainFrame.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+		end
+	end)
+end
+coroutine.wrap(XXTZ_fake_script)()
+local function BJOYQ_fake_script() -- ScreenGui.LocalScript 
+	local script = Instance.new('LocalScript', ScreenGui)
+
+	
+end
+coroutine.wrap(BJOYQ_fake_script)()
+
+local function NKFJBJX_fake_script() -- Paste.LocalScript 
+    local script = Instance.new('LocalScript', Paste)
+
+  --  TextBox.Text = getclipboard()
+end
+
+Paste.MouseButton1Click:Connect(function()
+	Code.Text = getclipboard()
+end)
+
+while wait() do
+	local fps = math.floor(1 / wait())
+	TextLabel_7.Text = "FPS: ".. fps
+end
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Frostware",
+    Text = "Join our discord today! https://discord.gg/3FhXJSyWG8",
+    Icon = "rbxthumb://type=Asset&id=114936734174789&w=150&h=150"
+})

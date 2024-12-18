@@ -544,4 +544,4 @@ TextLabel_13.TextWrapped = true
 UICorner_16.Parent = TextLabel_13
 
 TextLabel_14.Parent = Credits_2
-TextLabel_14.BackgroundColor3 = Color3.fr
+TextLabel_14.BackgroundColor3 = Color3.fromRGB(240, 240, 240)

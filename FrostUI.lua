@@ -1,5 +1,15 @@
-repeat wait( ) until game:IsLoaded( )
-local plrs = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local userId = player.UserId
+local Name = player.Name
+local content, isReady = Players:GetUserThumbnailAsync(
+    userId,
+    Enum.ThumbnailType.HeadShot,
+    Enum.ThumbnailSize.Size420x420 
+)
+
+local TweenService = game:GetService("TweenService")
+
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -70,7 +80,7 @@ Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Main.BackgroundTransparency = 0.300
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.109130904, 0, 0.142254889, 0)
+Main.Position = UDim2.new(0.205163598, 0, -0.5, 0)
 Main.Size = UDim2.new(0, 492, 0, 295)
 
 UICorner.Parent = Main
@@ -105,6 +115,11 @@ home.BorderSizePixel = 0
 home.Position = UDim2.new(0.121417709, 0, 0.0263929199, 0)
 home.Size = UDim2.new(0, 28, 0, 28)
 home.Image = "rbxassetid://119897226376123"
+
+local goalPosition = UDim2.new(0.205163598, 0, 0.0687371343, 0)
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local tween = TweenService:Create(Main, tweenInfo, {Position = goalPosition})
+tween:Play()
 
 Settings.Name = "Settings"
 Settings.Parent = Side
@@ -156,8 +171,8 @@ ImageLabel.BackgroundTransparency = 1.000
 ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ImageLabel.BorderSizePixel = 0
 ImageLabel.Position = UDim2.new(-0.0123159131, 0, -0.227451101, 0)
-ImageLabel.Size = UDim2.new(0, 50, 0, 50)
-ImageLabel.Image = "rbxassetid://104305620466966"
+ImageLabel.Size = UDim2.new(0, 48, 0, 48)
+ImageLabel.Image = "rbxassetid://114936734174789"
 
 TextButton.Parent = Top
 TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -201,7 +216,7 @@ User.BorderSizePixel = 0
 User.Position = UDim2.new(0.0581817627, 0, 0.094617106, 0)
 User.Size = UDim2.new(0, 47, 0, 59)
 User.ZIndex = 2
-User.Image = "rbxassetid://18747017080"
+User.Image = content
 
 UserText.Name = "UserText"
 UserText.Parent = User
@@ -213,9 +228,9 @@ UserText.Position = UDim2.new(1.11682653, 0, 0.213267952, 0)
 UserText.Size = UDim2.new(0, 155, 0, 35)
 UserText.ZIndex = 324234234
 UserText.Font = Enum.Font.Gotham
-UserText.Text = "Welcome, "
+UserText.Text = "Welcome! "..Name.." Thanks for using FrostWare!"
 UserText.TextColor3 = Color3.fromRGB(255, 255, 255)
-UserText.TextSize = 20.000
+UserText.TextSize = 12.000
 UserText.TextWrapped = true
 
 UICorner_5.Parent = User
@@ -311,7 +326,7 @@ TextLabel_6.BorderSizePixel = 0
 TextLabel_6.Position = UDim2.new(0.0199999548, 0, 0.437084794, 0)
 TextLabel_6.Size = UDim2.new(0, 208, 0, 28)
 TextLabel_6.Font = Enum.Font.FredokaOne
-TextLabel_6.Text = "-Keyless (for now)"
+TextLabel_6.Text = "- 1 Key"
 TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_6.TextSize = 20.000
 TextLabel_6.TextXAlignment = Enum.TextXAlignment.Left
@@ -325,9 +340,9 @@ TextLabel_7.BorderSizePixel = 0
 TextLabel_7.Position = UDim2.new(0.0199999548, 0, 0.598101735, 0)
 TextLabel_7.Size = UDim2.new(0, 208, 0, 28)
 TextLabel_7.Font = Enum.Font.FredokaOne
-TextLabel_7.Text = "-Configurable UI"
+TextLabel_7.Text = "FPS : "
 TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_7.TextSize = 20.000
+TextLabel_7.TextSize = 15.000
 TextLabel_7.TextXAlignment = Enum.TextXAlignment.Left
 TextLabel_7.TextYAlignment = Enum.TextYAlignment.Top
 
@@ -351,7 +366,7 @@ TextLabel_8.BorderSizePixel = 0
 TextLabel_8.Position = UDim2.new(0.0640756339, 0, 0.3434937, 0)
 TextLabel_8.Size = UDim2.new(0, 377, 0, 62)
 TextLabel_8.Font = Enum.Font.FredokaOne
-TextLabel_8.Text = "Settings comming soon!"
+TextLabel_8.Text = "Settings coming soon!"
 TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_8.TextSize = 32.000
 TextLabel_8.TextWrapped = true
@@ -377,7 +392,7 @@ Code.Position = UDim2.new(0.014309573, 0, 0.0276296716, 0)
 Code.Size = UDim2.new(0, 419, 0, 183)
 Code.Font = Enum.Font.SourceSans
 Code.PlaceholderColor3 = Color3.fromRGB(88, 88, 88)
-Code.PlaceholderText = "Print(\"FrostWare on top\")"
+Code.PlaceholderText = "print(\"FrostWare v1.0.0\")"
 Code.Text = ""
 Code.TextColor3 = Color3.fromRGB(255, 255, 255)
 Code.TextSize = 14.000
@@ -529,229 +544,4 @@ TextLabel_13.TextWrapped = true
 UICorner_16.Parent = TextLabel_13
 
 TextLabel_14.Parent = Credits_2
-TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_14.BackgroundTransparency = 1.000
-TextLabel_14.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_14.BorderSizePixel = 0
-TextLabel_14.Position = UDim2.new(-0.0580175109, 0, 0.643992722, 0)
-TextLabel_14.Size = UDim2.new(0, 421, 0, 32)
-TextLabel_14.ZIndex = 2
-TextLabel_14.Font = Enum.Font.SourceSansBold
-TextLabel_14.Text = "Main Dev: Diet Coke"
-TextLabel_14.TextColor3 = Color3.fromRGB(3, 7, 255)
-TextLabel_14.TextSize = 29.000
-TextLabel_14.TextWrapped = true
-
-UICorner_17.Parent = TextLabel_14
-
-OpenButton.Name = "Open Button"
-OpenButton.Parent = ScreenGui
-OpenButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-OpenButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-OpenButton.BorderSizePixel = 0
-OpenButton.Position = UDim2.new(0.472801805, 0, 0.0164237954, 0)
-OpenButton.Size = UDim2.new(0, 70, 0, 71)
-OpenButton.Visible = false
-OpenButton.Image = "rbxassetid://104305620466966"
-
-UICorner_18.CornerRadius = UDim.new(1, 0)
-UICorner_18.Parent = OpenButton
-
--- Scripts:
-
-local function NVXVLM_fake_script() -- Executor.LocalScript 
-	local script = Instance.new('LocalScript', Executor)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Parent.Credits.Visible = false
-		script.Parent.Parent.Parent.Executor.Visible = true
-		script.Parent.Parent.Parent.Home.Visible = false
-		script.Parent.Parent.Parent.Settings.Visible = false
-	end)
-end
-coroutine.wrap(NVXVLM_fake_script)()
-local function ZRKA_fake_script() -- home.LocalScript 
-	local script = Instance.new('LocalScript', home)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Parent.Credits.Visible = false
-		script.Parent.Parent.Parent.Executor.Visible = false
-		script.Parent.Parent.Parent.Home.Visible = true
-		script.Parent.Parent.Parent.Settings.Visible = false
-	end)
-end
-coroutine.wrap(ZRKA_fake_script)()
-local function JRWL_fake_script() -- Settings.LocalScript 
-	local script = Instance.new('LocalScript', Settings)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Parent.Credits.Visible = false
-		script.Parent.Parent.Parent.Executor.Visible = false
-		script.Parent.Parent.Parent.Home.Visible = false
-		script.Parent.Parent.Parent.Settings.Visible = true
-	end)
-end
-coroutine.wrap(JRWL_fake_script)()
-local function MXDI_fake_script() -- Credits.LocalScript 
-	local script = Instance.new('LocalScript', Credits)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Parent.Credits.Visible = true
-		script.Parent.Parent.Parent.Executor.Visible = false
-		script.Parent.Parent.Parent.Home.Visible = false
-		script.Parent.Parent.Parent.Settings.Visible = false
-	end)
-end
-coroutine.wrap(MXDI_fake_script)()
-local function QPFP_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Parent.Parent.Main.Visible = false
-	    script.Parent.Parent.Parent.Parent["Open Button"].Visible = true
-	end)
-	
-end
-coroutine.wrap(QPFP_fake_script)()
-local function PEWWH_fake_script() -- Top.Draggable 
-	local script = Instance.new('LocalScript', Top)
-
-	local UserInputService = game:GetService("UserInputService")
-	
-	
-	local MainFrame = script.Parent.Parent.Parent.Main
-	local TopBar = MainFrame:WaitForChild("Top")
-	
-	local Camera = workspace:WaitForChild("Camera")
-	
-	local DragMousePosition
-	local FramePosition
-	
-	
-	local Draggable = false
-	
-	TopBar.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			Draggable = true
-			DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
-			FramePosition= Vector2.new(MainFrame.Position.X.Scale, MainFrame.Position.Y.Scale)
-		end
-	end)
-	
-	TopBar.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			Draggable = false
-		end
-	end)
-	
-	UserInputService.InputChanged:Connect(function(input)
-		if Draggable == true then
-			local NewPosition = FramePosition + ( (Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
-			MainFrame.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
-		end
-	end)
-end
-coroutine.wrap(PEWWH_fake_script)()
-
-local function SUKHB_fake_script() -- Main.LocalScript 
-	local script = Instance.new('LocalScript', Main)
-
-	task.wait(2)
-	warn("Sorry about all them errors that is to do with frost ware gui :) Stay frosty my sexy")
-end
-coroutine.wrap(SUKHB_fake_script)()
-local function PHFF_fake_script() -- Clear.LocalScript 
-	local script = Instance.new('LocalScript', Clear)
-
-	local TextBox = script.Parent.Parent
-	local ClearButton = script.Parent
-	ClearButton.MouseButton1Click:Connect(function()
-		TextBox.Text = ""
-	end)
-	
-end
-coroutine.wrap(PHFF_fake_script)()
-local function PMROOSA_fake_script() -- Execute.LocalScript 
-	local script = Instance.new('LocalScript', Execute)
-
-	local TextBox = script.Parent.Parent
-	
-	local ExecuteButton = script.Parent
-	ExecuteButton.MouseButton1Click:Connect(function()
-		local luaCode = TextBox.Text
-		local success, err = pcall(function()
-			loadstring(luaCode)()
-		end)
-	
-		if not success then
-			warn("The script is either pathced or does not work and for that reason your code could'nt run, if issue stays even after using more scripts,contact developers, Error Code: 1" .. err)
-		end
-	end)
-	
-end
-coroutine.wrap(PMROOSA_fake_script)()
-
-local function UITBIOF_fake_script() -- OpenButton.LocalScript 
-	local script = Instance.new('LocalScript', OpenButton)
-
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.Parent.Main.Visible = true
-	    script.Parent.Parent["Open Button"].Visible = false
-	end)
-end
-coroutine.wrap(UITBIOF_fake_script)()
-local function XXTZ_fake_script() -- OpenButton.Drag 
-	local script = Instance.new('LocalScript', OpenButton)
-
-	local UserInputService = game:GetService("UserInputService")
-	
-	
-	local MainFrame = script.Parent
-	local TopBar = script.Parent
-	
-	local Camera = workspace:WaitForChild("Camera")
-	
-	local DragMousePosition
-	local FramePosition
-	
-	
-	local Draggable = false
-	
-	TopBar.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			Draggable = true
-			DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
-			FramePosition= Vector2.new(MainFrame.Position.X.Scale, MainFrame.Position.Y.Scale)
-		end
-	end)
-	
-	TopBar.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			Draggable = false
-		end
-	end)
-	
-	UserInputService.InputChanged:Connect(function(input)
-		if Draggable == true then
-			local NewPosition = FramePosition + ( (Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
-			MainFrame.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
-		end
-	end)
-end
-coroutine.wrap(XXTZ_fake_script)()
-local function BJOYQ_fake_script() -- ScreenGui.LocalScript 
-	local script = Instance.new('LocalScript', ScreenGui)
-
-	
-end
-coroutine.wrap(BJOYQ_fake_script)()
-
-local function NKFJBJX_fake_script() -- Paste.LocalScript 
-    local script = Instance.new('LocalScript', Paste)
-
-  --  TextBox.Text = getclipboard()
-end
-
-Paste.MouseButton1Click:Connect(function()
-	Code.Text = getclipboard()
-end)
+TextLabel_14.BackgroundColor3 = Color3.fr

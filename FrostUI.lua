@@ -544,4 +544,192 @@ TextLabel_13.TextWrapped = true
 UICorner_16.Parent = TextLabel_13
 
 TextLabel_14.Parent = Credits_2
-TextLabel_14.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+TextLabel_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_14.BackgroundTransparency = 1.000
+TextLabel_14.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_14.BorderSizePixel = 0
+TextLabel_14.Position = UDim2.new(-0.0580175109, 0, 0.643992722, 0)
+TextLabel_14.Size = UDim2.new(0, 421, 0, 32)
+TextLabel_14.ZIndex = 2
+TextLabel_14.Font = Enum.Font.SourceSansBold
+TextLabel_14.Text = "Main Dev: Diet Coke"
+TextLabel_14.TextColor3 = Color3.fromRGB(3, 7, 255)
+TextLabel_14.TextSize = 29.000
+TextLabel_14.TextWrapped = true
+
+UICorner_17.Parent = TextLabel_14
+
+OpenButton.Name = "Open Button"
+OpenButton.Parent = ScreenGui
+OpenButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OpenButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OpenButton.BorderSizePixel = 0
+OpenButton.Position = UDim2.new(0.472801805, 0, 0.0164237954, 0)
+OpenButton.Size = UDim2.new(0, 70, 0, 71)
+OpenButton.Visible = false
+OpenButton.Image = "rbxassetid://114936734174789"
+
+UICorner_18.CornerRadius = UDim.new(1, 0)
+UICorner_18.Parent = OpenButton
+
+-- Scripts:
+
+local function NVXVLM_fake_script() -- Executor.LocalScript 
+	local script = Instance.new('LocalScript', Executor)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Credits.Visible = false
+		script.Parent.Parent.Parent.Executor.Visible = true
+		script.Parent.Parent.Parent.Home.Visible = false
+		script.Parent.Parent.Parent.Settings.Visible = false
+	end)
+end
+coroutine.wrap(NVXVLM_fake_script)()
+local function ZRKA_fake_script() -- home.LocalScript 
+	local script = Instance.new('LocalScript', home)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Credits.Visible = false
+		script.Parent.Parent.Parent.Executor.Visible = false
+		script.Parent.Parent.Parent.Home.Visible = true
+		script.Parent.Parent.Parent.Settings.Visible = false
+	end)
+end
+coroutine.wrap(ZRKA_fake_script)()
+local function JRWL_fake_script() -- Settings.LocalScript 
+	local script = Instance.new('LocalScript', Settings)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Credits.Visible = false
+		script.Parent.Parent.Parent.Executor.Visible = false
+		script.Parent.Parent.Parent.Home.Visible = false
+		script.Parent.Parent.Parent.Settings.Visible = true
+	end)
+end
+coroutine.wrap(JRWL_fake_script)()
+local function MXDI_fake_script() -- Credits.LocalScript 
+	local script = Instance.new('LocalScript', Credits)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Credits.Visible = true
+		script.Parent.Parent.Parent.Executor.Visible = false
+		script.Parent.Parent.Parent.Home.Visible = false
+		script.Parent.Parent.Parent.Settings.Visible = false
+	end)
+end
+coroutine.wrap(MXDI_fake_script)()
+local function QPFP_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Parent.Main.Visible = false
+	    script.Parent.Parent.Parent.Parent["Open Button"].Visible = true
+	end)
+	
+end
+coroutine.wrap(QPFP_fake_script)()
+local function PEWWH_fake_script() -- Top.Draggable 
+	local script = Instance.new('LocalScript', Top)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	
+	local MainFrame = script.Parent.Parent.Parent.Main
+	local TopBar = MainFrame:WaitForChild("Top")
+	
+	local Camera = workspace:WaitForChild("Camera")
+	
+	local DragMousePosition
+	local FramePosition
+	
+	
+	local Draggable = false
+	
+	TopBar.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Draggable = true
+			DragMousePosition = Vector2.new(input.Position.X, input.Position.Y)
+			FramePosition= Vector2.new(MainFrame.Position.X.Scale, MainFrame.Position.Y.Scale)
+		end
+	end)
+	
+	TopBar.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Draggable = false
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if Draggable == true then
+			local NewPosition = FramePosition + ( (Vector2.new(input.Position.X, input.Position.Y) - DragMousePosition) / Camera.ViewportSize)
+			MainFrame.Position = UDim2.new(NewPosition.X, 0, NewPosition.Y, 0)
+		end
+	end)
+end
+coroutine.wrap(PEWWH_fake_script)()
+
+local function SUKHB_fake_script() -- Main.LocalScript 
+	local script = Instance.new('LocalScript', Main)
+
+	task.wait(2)
+	warn("Sorry about all them errors that is to do with frost ware gui :) Stay frosty my sexy")
+end
+coroutine.wrap(SUKHB_fake_script)()
+local function PHFF_fake_script() -- Clear.LocalScript 
+	local script = Instance.new('LocalScript', Clear)
+
+	local TextBox = script.Parent.Parent
+	local ClearButton = script.Parent
+	ClearButton.MouseButton1Click:Connect(function()
+		TextBox.Text = ""
+	end)
+	
+end
+coroutine.wrap(PHFF_fake_script)()
+local function PMROOSA_fake_script() -- Execute.LocalScript 
+	local script = Instance.new('LocalScript', Execute)
+
+	local TextBox = script.Parent.Parent
+	
+	local ExecuteButton = script.Parent
+	ExecuteButton.MouseButton1Click:Connect(function()
+		local luaCode = TextBox.Text
+		local success, err = pcall(function()
+			loadstring(luaCode)()
+		end)
+	
+		if not success then
+			warn("The script is either patched or does not work and for that reason your code couldn't run, if issue stays even after using more scripts, contact developers, Error Code: 1" .. err)
+		end
+	end)
+	
+end
+coroutine.wrap(PMROOSA_fake_script)()
+
+local function UITBIOF_fake_script() -- OpenButton.LocalScript 
+	local script = Instance.new('LocalScript', OpenButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Main.Visible = true
+	    script.Parent.Parent["Open Button"].Visible = false
+	end)
+end
+coroutine.wrap(UITBIOF_fake_script)()
+local function XXTZ_fake_script() -- OpenButton.Drag 
+	local script = Instance.new('LocalScript', OpenButton)
+
+	local UserInputService = game:GetService("UserInputService")
+	
+	
+	local MainFrame = script.Parent
+	local TopBar = script.Parent
+	
+	local Camera = workspace:WaitForChild("Camera")
+	
+	local DragMousePosition
+	local FramePosition
+	
+	
+	local Draggable = false
+	
+	TopBar.InputBegan:Connect(function(input)
